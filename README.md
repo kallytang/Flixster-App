@@ -26,7 +26,7 @@ Portrait Mode:
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_portrait.gif" width=250><br>
 
 Landscape Mode: 
-<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_landscape.gif" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_landscape.gif" width=450><br>
 
 ### Notes
 All movies are greater than 5 stars, I made it so that movies with 7 stars and up are shown as a backdrop and ones below a rating of 7 are shown as portrait images. Some extraneous files are there because I was going to make a pop up window to show more movie information but found out it was going to be the next assignment. Not sure changing the background to black and font gray counts as improved userface. 
