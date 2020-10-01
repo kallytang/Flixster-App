@@ -3,6 +3,7 @@ package com.example.flixster.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Parcel
 public class Movie {
     String backdropPath;
     String posterPath;
@@ -19,6 +21,10 @@ public class Movie {
     Double rating;
     String releaseDate;
     String language;
+    int movieId;
+
+    // empty constructor needed by the Parceler Library
+    public Movie(){}
 
 
     public Movie(JSONObject jsonObject) throws JSONException {
@@ -30,6 +36,7 @@ public class Movie {
         rating = Double.parseDouble(jsonObject.getString("vote_average"));
         releaseDate = jsonObject.getString("release_date");
         language = jsonObject.getString("original_language");
+        movieId = jsonObject.getInt("id");
     }
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
         List<Movie> movies = new ArrayList<>();
@@ -76,5 +83,16 @@ public class Movie {
         }
     }
 
+    public String getLanguage() {
+        return language;
+    }
 
+    public int getMovieId() {
+        return movieId;
+    }
+
+    public String formatDate(String date){
+        String string = "";
+        return string;
+    }
 }

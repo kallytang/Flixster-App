@@ -1,24 +1,39 @@
 package com.example.flixster.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Parcel;
 import android.util.Log;
+import androidx.core.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.example.flixster.MainActivity;
+import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     Context context;
     List<Movie> movies;
     private final int PORTRAIT = 0, BACKDROP = 1, LANDSCAPE=3;
@@ -32,14 +47,16 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     //viewholder1
     class ViewHolder1 extends RecyclerView.ViewHolder{
+        RelativeLayout container;
         private TextView tvTitle;
         private TextView tvOverview;
         private ImageView ivPoster;
         public ViewHolder1(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview = itemView.findViewById(R.id.tvOverview);
+            tvOverview = itemView.findViewById(R.id.mvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+            container = itemView.findViewById(R.id.container);
 
         }
         public TextView getTvTitle() {
@@ -69,14 +86,13 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     //viewholder2
     class ViewHolder2 extends RecyclerView.ViewHolder{
-//        private TextView tvTitle;
-//        private TextView tvOverview;
+
+        RelativeLayout container;
         private ImageView ivPoster;
         public ViewHolder2(@NonNull View itemView) {
             super(itemView);
-//            tvTitle = itemView.findViewById(R.id.tvTitle2);
-//            tvOverview = itemView.findViewById(R.id.tvOverview2);
             ivPoster = itemView.findViewById(R.id.ivPoster2);
+            container = itemView.findViewById(R.id.container);
         }
 
         public ImageView getIvPoster() {
@@ -134,36 +150,79 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             ViewHolder1 vh3 = (ViewHolder1)holder;
             bindLandScapeView(vh3, movie);
         }
+
     }
 
-    private void bindDefaultView(ViewHolder1 holder, Movie movie) {
-        holder.getTvOverview().setText(movie.getFullOverView());
+    private void bindDefaultView(final ViewHolder1 holder, final Movie movie) {
+        holder.getTvOverview().setText(movie.getOverview());
         holder.getTvTitle().setText(movie.getTitle());
         imageUrl = movie.getPosterPath();
-        Glide.with(context).load(imageUrl).placeholder(R.drawable.portraitpreview200)
+        Glide.with(context).load(imageUrl).placeholder(R.drawable.portraitpreview200).fitCenter().transform(new RoundedCorners(30))
                 .into(holder.getIvPoster());
+        //register click listener on the whole item in the recyclerview
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                //2. navigate to the new activity by tapping on the row
+                Intent i = new Intent(context, MovieDetailsActivity.class);
+                i.putExtra("movie", Parcels.wrap(movie));
+                Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
+                Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
+                Pair<View, String> overviewView = Pair.create((View)holder.getTvOverview(), "overviewBlock");
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, posterImageView, titleImageView, overviewView);
+
+                context.startActivity(i, options.toBundle());
+
+            }
+        });
     }
 
 
-    private void bindAlternativeView(ViewHolder2 holder, Movie movie) {
-        String textOverviewInfo = movie.getFullOverView();
+    private void bindAlternativeView(final ViewHolder2 holder, final Movie movie) {
+        String textOverviewInfo = movie.getOverview();
         if (textOverviewInfo.length() >150){
             textOverviewInfo = textOverviewInfo.substring(0,150) +"...";
         }
 
         imageUrl =movie.getBackdropPath();
-        Glide.with(context).load(imageUrl).placeholder(R.drawable.backdrop600)
+        Glide.with(context).load(imageUrl).placeholder(R.drawable.backdrop600).fitCenter().transform(new RoundedCorners(30))
                 .into(holder.getIvPoster());
         Log.d("MovieAdapter", imageUrl);
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, MovieDetailsActivity.class);
+                i.putExtra("movie", Parcels.wrap(movie));
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, (View)holder.getIvPoster(), "posterImage");
+                context.startActivity(i,options.toBundle());
+
+            }
+        });
 
     }
 
-    private void bindLandScapeView(ViewHolder1 holder, Movie movie) {
+    private void bindLandScapeView(final ViewHolder1 holder, final Movie movie) {
         holder.getTvOverview().setText(movie.getFullOverView());
         holder.getTvTitle().setText(movie.getTitle());
         imageUrl =movie.getBackdropPath();
-        Glide.with(context).load(imageUrl).placeholder(R.drawable.backdrop600)
+        Glide.with(context).load(imageUrl).placeholder(R.drawable.backdrop600).fitCenter().transform(new RoundedCorners(30))
                 .into(holder.getIvPoster());
+        holder.container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, MovieDetailsActivity.class);
+                i.putExtra("movie", Parcels.wrap(movie));
+                Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
+                Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
+                Pair<View, String> overviewView = Pair.create((View)holder.getTvOverview(), "overviewBlock");
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, posterImageView, titleImageView, overviewView);
+
+                context.startActivity(i, options.toBundle());
+            }
+        });
     }
 
     //return item count of the movies list

@@ -29,12 +29,7 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String BACK_DROP_PATH = "back_drop_path";
-    public static final String POSTER_PATH = "poster_path";
-    public static final String MOVIE_TITLE = "movie_title";
-    public static final String MOVIE_RATING = "movie_rating";
-    public static final String RELEASE_DATE = "release_date";
-    public static final String GET_OVERVIEW = "full_overview";
+
 
 
     public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
@@ -89,25 +84,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //for unit 2
-
-//    public void openItem(int position) {
-//        Movie movieItem = movies.get(position);
-//        Log.d("PopUp", "Popup");
-//        Intent intent = new Intent(this, MovieInfoDialog.class);
-//
-//        startActivity(intent);
-//
-//        String backdropPath = movieItem.getBackdropPath();
-//        String posterPath = movieItem.getPosterPath();
-//        String title = movieItem.getTitle();
-//        String overview = movieItem.getFullOverView();
-//        String rating = movieItem.getRating().toString();
-//        String releaseDate = movieItem.getReleaseDate();
-//    }
 }
 
-//todo: https://www.geeksforgeeks.org/how-to-implement-dark-night-mode-in-android-app/
-// todo create app pop up info
-//todo alternative viewholder
 
