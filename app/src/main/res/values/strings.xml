@@ -9,4 +9,7 @@
     <string name="poster_image">poster image</string>
     <string name="overview">Overview</string>
     <string name="overview1">Overview:</string>
+    <string name="play_image_overlay">play image overlay</string>
+    <string name="backdrop_image">backdrop image</string>
+    <string name="playbutton_image_preview">playbutton image preview</string>
 </resources>

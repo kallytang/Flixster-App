@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
-
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 android {
     compileSdkVersion 29
 
@@ -9,6 +11,9 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "YOUTUBE_API_KEY", apikeyProperties['YOUTUBE_API_KEY']
+        buildConfigField "String", "VIDEOS_URL", apikeyProperties['VIDEOS_URL']
+        buildConfigField "String", "NOW_PLAYING_URL", apikeyProperties['NOW_PLAYING_URL']
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,3 +49,4 @@ dependencies {
 
 
 }
+

@@ -10,16 +10,26 @@
     android:paddingRight="10dp"
     android:paddingBottom="5dp">
 
+
+
     <ImageView
         android:id="@+id/ivPoster2"
         android:layout_width="370dp"
         android:transitionName = "posterImage"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:contentDescription="@string/poster_image"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/playbutton_image_preview"
+        app:srcCompat="@drawable/play_button" />
 
 
 </RelativeLayout>

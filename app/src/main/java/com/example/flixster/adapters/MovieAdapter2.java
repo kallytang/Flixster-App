@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.example.flixster.LowerRatingViewActivity;
 import com.example.flixster.MainActivity;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
@@ -165,7 +166,7 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             public void onClick(View v) {
 //                Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
                 //2. navigate to the new activity by tapping on the row
-                Intent i = new Intent(context, MovieDetailsActivity.class);
+                Intent i = new Intent(context, LowerRatingViewActivity.class);
                 i.putExtra("movie", Parcels.wrap(movie));
                 Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
                 Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
