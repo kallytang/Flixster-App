@@ -13,7 +13,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 #### BONUS
 -[x]Implement a shared element transition when user clicks into the details of a movie (1 point)
 - [x] Trailers for popular movies are played automatically when the movie is selected (1 point).
-  - [x] When clicking on a popular movie (i.e. a movie voted for more than 7.5 stars) the video should be played immediately.
+  - [x] When clicking on a popular movie (i.e. a movie voted for more than 7 stars) the video should be played immediately.
   - [x] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
 - [x] Add a play icon overlay to popular movies to indicate that the movie can be played (1 point).
 - [ ] Apply the popular ButterKnife annotation library to reduce view boilerplate. (1 point)
@@ -23,10 +23,20 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 `TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
 
+implementation of shared transition  <br>
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+
+implementation of trailers for popular movies to play automatically, and less popular vids have an image placeholder
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+
+implementation of play icon AND rounded images<br>
+<img src="YOUR_GIF_URL_HERE" width=250><br>
 <img src="YOUR_GIF_URL_HERE" width=250><br>
 
 ### Notes
-NOTE: all movies have ratings higher than 5, instead of movies greater than 5 looking different, it'll be 7.5.
+NOTE: all movies have ratings higher than 5, instead of movies greater than 5 looking different, it'll be 7.
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing

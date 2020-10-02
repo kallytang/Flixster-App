@@ -34,7 +34,6 @@ import java.util.List;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     Context context;
     List<Movie> movies;
     private final int PORTRAIT = 0, BACKDROP = 1, LANDSCAPE=3;
@@ -48,6 +47,7 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     //viewholder1
     class ViewHolder1 extends RecyclerView.ViewHolder{
+        ImageView playIcon;
         RelativeLayout container;
         private TextView tvTitle;
         private TextView tvOverview;
@@ -58,6 +58,7 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             tvOverview = itemView.findViewById(R.id.mvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
+            playIcon = itemView.findViewById(R.id.playIcon1);
 
         }
         public TextView getTvTitle() {
@@ -205,6 +206,10 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     private void bindLandScapeView(final ViewHolder1 holder, final Movie movie) {
+        if (movie.getRating()<7){
+            holder.playIcon.setVisibility(holder.playIcon.GONE);
+        }
+
         holder.getTvOverview().setText(movie.getFullOverView());
         holder.getTvTitle().setText(movie.getTitle());
         imageUrl =movie.getBackdropPath();
@@ -214,14 +219,28 @@ public class MovieAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             @Override
             public void onClick(View v) {
 //                Toast.makeText(context, movie.getTitle(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(context, MovieDetailsActivity.class);
-                i.putExtra("movie", Parcels.wrap(movie));
-                Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
-                Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
-                Pair<View, String> overviewView = Pair.create((View)holder.getTvOverview(), "overviewBlock");
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, posterImageView, titleImageView, overviewView);
+                if (movie.getRating() < 7){
+                    Intent i = new Intent(context, LowerRatingViewActivity.class);
+                    i.putExtra("movie", Parcels.wrap(movie));
+                    Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
+                    Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
+                    Pair<View, String> overviewView = Pair.create((View)holder.getTvOverview(), "overviewBlock");
 
-                context.startActivity(i, options.toBundle());
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, posterImageView, titleImageView, overviewView);
+
+                    context.startActivity(i, options.toBundle());
+                }else{
+                    Intent i = new Intent(context, MovieDetailsActivity.class);
+                    i.putExtra("movie", Parcels.wrap(movie));
+                    Pair<View, String> posterImageView = Pair.create((View)holder.getIvPoster(), "posterImage");
+                    Pair<View, String> titleImageView = Pair.create((View)holder.getTvTitle(), "movieTitle");
+                    Pair<View, String> overviewView = Pair.create((View)holder.getTvOverview(), "overviewBlock");
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity)context, posterImageView, titleImageView, overviewView);
+
+                    context.startActivity(i, options.toBundle());
+                }
+
             }
         });
     }
