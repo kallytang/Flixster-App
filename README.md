@@ -21,15 +21,15 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 ### App Walkthough GIF
 
-implementation of shared transition  <br>
+# Implementation of shared transition  <br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_transition.gif" width=250><br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/transitions_land.gif" width=450><br>
 
-implementation of trailers for popular movies to play automatically, and less popular vids have an image placeholder
+# Implementation of trailers for popular movies to play automatically, and less popular vids have an image placeholder
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_different_rating_views.gif" width=250><br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/different_rating_views_land.gif" width=450><br>
 
-implementation of play icon AND rounded images<br>
+# Implementation of play icon AND rounded images<br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon.gif" width=250><br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon_land.gif" width=450><br>
 
