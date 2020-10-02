@@ -24,16 +24,16 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 `TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
 
 implementation of shared transition  <br>
-<img src="YOUR_GIF_URL_HERE" width=250><br>
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_transition.gif" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/transitions_land.gif" width=450><br>
 
 implementation of trailers for popular movies to play automatically, and less popular vids have an image placeholder
-<img src="YOUR_GIF_URL_HERE" width=250><br>
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_different_rating_views.gif" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/different_rating_views_land.gif" width=450><br>
 
 implementation of play icon AND rounded images<br>
-<img src="YOUR_GIF_URL_HERE" width=250><br>
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon.gif" width=250><br>
+<img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon_land.gif" width=450><br>
 
 ### Notes
 NOTE: all movies have ratings higher than 5, instead of movies greater than 5 looking different, it'll be 7.
