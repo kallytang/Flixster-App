@@ -11,7 +11,7 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [x] (2pts) Allow video posts to be played in full-screen using the YouTubePlayerView.
 
 #### BONUS
-- [x]Implement a shared element transition when user clicks into the details of a movie (1 point)
+- [x] Implement a shared element transition when user clicks into the details of a movie (1 point)
 - [x] Trailers for popular movies are played automatically when the movie is selected (1 point).
   - [x] When clicking on a popular movie (i.e. a movie voted for more than 7 stars) the video should be played immediately.
   - [x] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
@@ -20,8 +20,6 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 - [x] Add a rounded corners for the images using the Glide transformations. (1 point)
 
 ### App Walkthough GIF
-
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
 
 implementation of shared transition  <br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_transition.gif" width=250><br>
@@ -62,7 +60,7 @@ NOTE: all movies have ratings higher than 5, instead of movies greater than 5 lo
 ### App Walkthough GIF
 Portrait Mode:
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_portrait.gif" width=250><br>
-
+ 
 Landscape Mode: 
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_landscape.gif" width=450><br>
 
