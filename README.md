@@ -20,6 +20,8 @@ Learned how to create heterogenous recyclerviews and shared transitions. Created
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon.gif" width=250><br>
 <img src="https://github.com/kallytang/Flixster-App/blob/master/flixter_app_playicon_land.gif" width=450><br>
 
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
 ### Notes
 NOTE: all movies have ratings higher than 5, instead of movies greater than 5 looking different, it'll be 7.
 
